@@ -7,7 +7,7 @@ import java.util.Collection;
 
 public class ShowTablesCommand implements CommandInterface {
 
-    public boolean isValidate(String query) {
+    public boolean validate(String query) {
 
         return true;
     }

@@ -17,4 +17,11 @@ public class TableMeta implements Serializable {
         this.name = name;
     }
 
+    public List<ColumnMeta> getColumns() {
+        return columns;
+    }
+
+    public void setColumns(List<ColumnMeta> columns) {
+        this.columns = columns;
+    }
 }
