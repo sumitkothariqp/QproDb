@@ -11,14 +11,18 @@ public class MetaCacheService {
 
     private static Map<String, TableMeta> metaCache = Cache.getINSTANCE().getMetaCache();
 
-    public static boolean isTableExits(String name) {
-        if (metaCache.get(name) == null) {
+    public boolean isTableExits(String name) {
+        if (metaCache.containsKey(name)) {
             return false;
         }
         return true;
     }
 
-    public static void createTable(TableMeta tableMeta) {
+    public TableMeta getTableMeta(String name) {
+        return metaCache.get(name);
+    }
+
+    public void createTable(TableMeta tableMeta) {
         metaCache.put(tableMeta.getName(), tableMeta);
     }
 
