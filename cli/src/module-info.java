@@ -1,2 +1,3 @@
 module cli {
+    requires db;
 }
