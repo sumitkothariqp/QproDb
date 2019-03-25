@@ -41,16 +41,18 @@ public class SelectCommand implements CommandInterface {
         String tableName = q1.get(3);
         TableMeta tableMeta = MetaCacheService.getTableMeta(tableName);
         List<ColumnMeta> listofColumns = tableMeta.getColumns();
+
         if (columns.equals("*")) {
+            listofColumns.stream().forEach(column -> System.out.print(column + "    "));
             for (ColumnMeta columnMeta : listofColumns) {
-                String columnName = columnMeta.getName();
                 List<Map<String, Object>> listOfData = DataCacheService.getAllRows(tableName);
-                System.out.print(columnName);
                 listOfData.forEach(item ->
                         item.forEach((k, v) -> System.out.println((String) v)
                         ));
             }
         } else {
+            List<String> columnList = StringUtil.splitString(columns, ",");
+            columnList.stream().forEach(column -> System.out.print(column + "    "));
             List<Map<String, Object>> listOfData = DataCacheService.getAllRows(tableName);
             listOfData.forEach(item ->
                     item.forEach((k, v) ->
