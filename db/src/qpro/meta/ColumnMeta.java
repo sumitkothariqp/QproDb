@@ -6,6 +6,8 @@ public class ColumnMeta implements Serializable {
 
     private String name;
 
+    private String type;
+
     public String getName() {
         return name;
     }
@@ -22,5 +24,5 @@ public class ColumnMeta implements Serializable {
         this.type = type;
     }
 
-    private String type;
+
 }
