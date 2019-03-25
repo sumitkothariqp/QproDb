@@ -6,6 +6,7 @@ public class CommandFactory {
     public static final String SELECT_COMMAND = "select";
     public static final String INSERT_COMMAND = "insert into";
     public static final String DELETE_COMMAND = "delete from";
+    public static final String SHOW_TABLES = "show tables";
 
     public static CommandInterface getCommand(String query) {
         if (query.contains(CREATE_COMMAND))
@@ -18,6 +19,8 @@ public class CommandFactory {
             return new InsertCommand(query);
         else if (query.contains(DELETE_COMMAND))
             return new DeleteCommand(query);
+        else if (query.contains(SHOW_TABLES))
+            return new ShowTablesCommand();
         else
             return null;
 
