@@ -1,3 +1,4 @@
 module db {
-    requires file.util;
+    exports qpro.cli;
+    requires fileIO;
 }
