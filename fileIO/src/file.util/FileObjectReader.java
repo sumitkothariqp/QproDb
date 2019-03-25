@@ -19,7 +19,7 @@ public class FileObjectReader {
                 objectsReadFromFile.add(object);
             }
         } catch (EOFException eof) {
-            System.out.println("Reached end of file");
+
         } catch (IOException ex) {
             ex.printStackTrace();
         } catch (ClassNotFoundException e) {

@@ -9,7 +9,7 @@ public class DeleteCommand implements CommandInterface {
 
     public boolean validate(String query) {
         List<String> q1 = StringUtil.splitString(query, " ");
-        if (!MetaCacheService.isTableExits(q1.get(2))) {
+        if (!MetaCacheService.isTableExist(q1.get(2))) {
             return false;
         }
         return true;

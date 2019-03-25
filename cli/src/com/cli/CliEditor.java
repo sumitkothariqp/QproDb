@@ -1,6 +1,7 @@
 package com.cli;
 
 import qpro.cli.CliProcessor;
+import qpro.cli.InitDatabase;
 
 import java.util.Scanner;
 
@@ -9,6 +10,7 @@ public class CliEditor {
     public static void main(String args[]) {
         Scanner scanner = new Scanner(System.in);
 
+        InitDatabase.init();
         System.out.print("qprodb>");
 
         do {
@@ -16,6 +18,7 @@ public class CliEditor {
             // System.out.println(command);
 
             if (command!= null && command.equals("exit")) {
+                InitDatabase.dumpInFile();
                 System.exit(0);
             }
             if (command != null) {

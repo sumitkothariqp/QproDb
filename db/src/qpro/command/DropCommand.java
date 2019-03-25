@@ -10,25 +10,22 @@ public class DropCommand implements CommandInterface {
 
     public boolean validate(String query) {
         {
-            List<String> q1= StringUtil.splitString(query,"// ");
-            String tableName=q1.get(2);
-
-            int splitCommandSize=q1.size();
-            if(splitCommandSize<3){
+            List<String> q1 = StringUtil.splitString(query, " ");
+            if (q1.size() < 3) {
                 return false;
             }
-
-            if (StringUtil.isEmpty(tableName) || !MetaCacheService.isTableExits(tableName)) {
+            String tableName = q1.get(2);
+            if (StringUtil.isEmpty(tableName) || !MetaCacheService.isTableExist(tableName)) {
                 return false;
             }
 
         }
-        return false;
+        return true;
     }
 
     public Object process(String query) {
-        List<String> q1= StringUtil.splitString(query,"// ");
-        String tableName=q1.get(2);
+        List<String> q1 = StringUtil.splitString(query, " ");
+        String tableName = q1.get(2);
         TableMeta tableMeta = new TableMeta();
         MetaCacheService.dropTable(tableName);
 

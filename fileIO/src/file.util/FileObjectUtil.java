@@ -6,7 +6,7 @@ import java.io.IOException;
 
 public class FileObjectUtil {
     public static File getFile(String filename) throws IOException {
-        File file = new File("/home/nvora/QProDBData/" + filename);
+        File file = new File("~/QProDBData/" + filename);
         file.getParentFile().mkdirs(); // Will create parent directories if not exists
         file.createNewFile();
         return file;
