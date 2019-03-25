@@ -10,15 +10,15 @@ public class CommandFactory {
 
     public static CommandInterface getCommand(String query) {
         if (query.contains(CREATE_COMMAND))
-            return new CreateCommand(query);
+            return new CreateCommand();
         else if (query.contains(DROP_COMMAND))
-            return new DropCommand(query);
+            return new DropCommand();
         else if (query.contains(SELECT_COMMAND))
-            return new SelectCommand(query);
+            return new SelectCommand();
         else if (query.contains(INSERT_COMMAND))
-            return new InsertCommand(query);
+            return new InsertCommand();
         else if (query.contains(DELETE_COMMAND))
-            return new DeleteCommand(query);
+            return new DeleteCommand();
         else if (query.contains(SHOW_TABLES))
             return new ShowTablesCommand();
         else

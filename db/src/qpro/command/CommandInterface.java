@@ -4,14 +4,14 @@ import qpro.pojo.QueryStats;
 import qpro.pojo.QueryStatus;
 
 public interface CommandInterface {
-    public boolean isValidate(String query);
+
+    public boolean validate(String query);
 
     public Object process(String query);
 
-
     default QueryStats executeQuery(String query) {
         QueryStats stats = new QueryStats();
-        if(!isValidate(query)) {
+        if (!validate(query)) {
             stats.setQueryStatus(QueryStatus.VALIDATION_FAIL);
             return stats;
         }
@@ -20,4 +20,5 @@ public interface CommandInterface {
         stats.setData(data);
         return stats;
     }
+
 }
