@@ -1,7 +1,6 @@
 package qpro.command;
 
 import qpro.cache.MetaCacheService;
-import qpro.meta.ColumnDataType;
 import qpro.meta.ColumnMeta;
 import qpro.meta.TableMeta;
 import qpro.util.StringUtil;
@@ -20,9 +19,9 @@ public class SelectCommand implements CommandInterface {
         if (StringUtil.isEmpty(syntax) || !syntax.equals("from")) {
             return false;
         }
-        if (StringUtil.isEmpty(tableName) || !MetaCacheService.isTableExits(tableName)) {
+        if (StringUtil.isEmpty(tableName) || !MetaCacheService.isTableExist(tableName)) {
             return false;
-        } else if (MetaCacheService.isTableExits(tableName)) {
+        } else if (MetaCacheService.isTableExist(tableName)) {
             List<ColumnMeta> allColumns = MetaCacheService.getTableMeta(tableName).getColumns();
             for (ColumnMeta columnMeta : allColumns) {
                 if (!columns.equals(columnMeta.getName()) || !columns.equals("*")) {

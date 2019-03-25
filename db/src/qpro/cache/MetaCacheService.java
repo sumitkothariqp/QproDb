@@ -11,7 +11,7 @@ public class MetaCacheService {
 
     private static  Map<String, TableMeta> metaCache = Cache.getINSTANCE().getMetaCache();
 
-    public static boolean isTableExits(String name) {
+    public static boolean isTableExist(String name) {
         if (metaCache.containsKey(name)) {
             return true;
         }

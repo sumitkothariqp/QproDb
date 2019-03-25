@@ -15,7 +15,7 @@ public class CreateCommand implements CommandInterface {
         List<String> q1 = StringUtil.splitString(query, "\\(");
         List<String> q2 = StringUtil.splitString(q1.get(0), "\\ ");
         String tableName = q2.get(2);
-        if (MetaCacheService.isTableExits(tableName)) {
+        if (MetaCacheService.isTableExist(tableName)) {
             return false;
         }
         if (StringUtil.isEmpty(tableName) || StringUtil.isNumeric(tableName)) {
