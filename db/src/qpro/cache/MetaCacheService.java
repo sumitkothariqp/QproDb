@@ -30,6 +30,9 @@ public class MetaCacheService {
         metaCache.put(tableMeta.getName(), tableMeta);
     }
 
+    public static void dropTable(String name){metaCache.remove(name);
+    }
+
     public static void initializeCache(List<TableMeta> tableMetaList) {
         tableMetaList.stream().forEach(tableMeta -> metaCache.put(tableMeta.getName(), tableMeta));
     }

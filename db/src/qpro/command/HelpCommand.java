@@ -20,9 +20,12 @@ public class HelpCommand implements CommandInterface {
             System.out.println("select command: select <*/column_name> from tablename ");
         } else if (query.contains("insert")) {
             System.out.println("insert command: insert into tablename values(column_value");
-        } else if (query.contains("help")) {
+        }else if(query.contains("drop")){
+            System.out.println("drop coomand: drop table tablename");
+        }
+        else if (query.contains("help")) {
             System.out.println("Commands: \n\t\t create;\n\t\t select;\n\t\t insert");
-            System.out.println("check for help type: 'help create' \n 'help select' \n 'help insert'");
+            System.out.println("check for help type: 'help create' \n 'help select' \n 'help insert' \n 'help drop'");
         }
         return null;
 
