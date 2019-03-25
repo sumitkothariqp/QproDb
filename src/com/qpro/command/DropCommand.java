@@ -1,3 +1,5 @@
+package com.qpro.command;
+
 public class DropCommand implements CommandInterface {
     DropCommand(String query) {
         isValidate(query);

@@ -1,3 +1,5 @@
+package com.qpro.command;
+
 public class CommandFactory {
     public static final String CREATE_COMMAND = "create table";
     public static final String DROP_COMMAND = "drop table";

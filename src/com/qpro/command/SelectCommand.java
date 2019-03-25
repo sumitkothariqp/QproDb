@@ -1,3 +1,5 @@
+package com.qpro.command;
+
 public class SelectCommand implements CommandInterface {
     SelectCommand(String query) {
         isValidate(query);

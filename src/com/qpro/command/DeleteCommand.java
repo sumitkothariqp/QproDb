@@ -1,3 +1,5 @@
+package com.qpro.command;
+
 public class DeleteCommand implements CommandInterface {
     DeleteCommand(String query) {
         isValidate(query);

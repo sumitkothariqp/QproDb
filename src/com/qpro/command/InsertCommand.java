@@ -1,3 +1,5 @@
+package com.qpro.command;
+
 public class InsertCommand implements CommandInterface {
     InsertCommand(String query) {
         isValidate(query);
