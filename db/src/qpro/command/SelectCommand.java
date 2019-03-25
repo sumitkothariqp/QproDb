@@ -14,7 +14,7 @@ public class SelectCommand implements CommandInterface {
 
     public boolean validate(String query) {
 
-        List<String> q1 = StringUtil.splitString(query, "// ");
+        List<String> q1 = StringUtil.splitString(query, " ");
         String columns = q1.get(1);
         String syntax = q1.get(2);
         String tableName = q1.get(3);
@@ -26,7 +26,7 @@ public class SelectCommand implements CommandInterface {
         } else if (MetaCacheService.isTableExist(tableName)) {
             List<ColumnMeta> allColumns = MetaCacheService.getTableMeta(tableName).getColumns();
             for (ColumnMeta columnMeta : allColumns) {
-                if (!columns.equals(columnMeta.getName()) || !columns.equals("*")) {
+                if (!columns.equals(columnMeta.getName()) && !columns.equals("*")) {
                     return false;
                 }
             }
@@ -36,7 +36,7 @@ public class SelectCommand implements CommandInterface {
     }
 
     public Object process(String query) {
-        List<String> q1 = StringUtil.splitString(query, "// ");
+        List<String> q1 = StringUtil.splitString(query, " ");
         String columns = q1.get(1);
         String tableName = q1.get(3);
         TableMeta tableMeta = MetaCacheService.getTableMeta(tableName);
