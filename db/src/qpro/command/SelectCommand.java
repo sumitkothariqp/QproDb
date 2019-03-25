@@ -1,11 +1,13 @@
 package qpro.command;
 
+import qpro.cache.DataCacheService;
 import qpro.cache.MetaCacheService;
 import qpro.meta.ColumnMeta;
 import qpro.meta.TableMeta;
 import qpro.util.StringUtil;
 
 import java.util.List;
+import java.util.Map;
 
 public class SelectCommand implements CommandInterface {
     TableMeta tableMeta = new TableMeta();
@@ -37,15 +39,26 @@ public class SelectCommand implements CommandInterface {
         List<String> q1 = StringUtil.splitString(query, "// ");
         String columns = q1.get(1);
         String tableName = q1.get(3);
+        TableMeta tableMeta = MetaCacheService.getTableMeta(tableName);
+        List<ColumnMeta> listofColumns = tableMeta.getColumns();
         if (columns.equals("*")) {
-            TableMeta tableMeta = MetaCacheService.getTableMeta(tableName);
-            List<ColumnMeta> listofColumns = tableMeta.getColumns();
             for (ColumnMeta columnMeta : listofColumns) {
                 String columnName = columnMeta.getName();
-                //display the column values.
+                List<Map<String, Object>> listOfData = DataCacheService.getAllRows(tableName);
+                System.out.print(columnName);
+                listOfData.forEach(item ->
+                        item.forEach((k, v) -> System.out.println((String) v)
+                        ));
             }
         } else {
-
+            List<Map<String, Object>> listOfData = DataCacheService.getAllRows(tableName);
+            listOfData.forEach(item ->
+                    item.forEach((k, v) ->
+                            {
+                                if (columns.equals(k))
+                                    System.out.println((String) v);
+                            }
+                    ));
         }
         return null;
     }
