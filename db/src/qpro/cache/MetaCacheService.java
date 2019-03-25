@@ -13,9 +13,9 @@ public class MetaCacheService {
 
     public static boolean isTableExits(String name) {
         if (metaCache.containsKey(name)) {
-            return false;
+            return true;
         }
-        return true;
+        return false;
     }
 
     public static TableMeta getTableMeta(String name) {
