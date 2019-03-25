@@ -43,15 +43,15 @@ public class CreateCommand implements CommandInterface {
         tableMeta.setName(tableName);
         List<String> q3 = StringUtil.splitString(q1.get(1).replace(")", ""), ",");
         List<ColumnDataType> columnDataTypes = new ArrayList<ColumnDataType>();
+        List<ColumnMeta> columns = new ArrayList<ColumnMeta>();
         for (int i = 0; i < q3.size(); i++) {
             List<String> q4 = StringUtil.splitString(q3.get(i), " ");
-            List<ColumnMeta> columns = new ArrayList<ColumnMeta>();
             ColumnMeta columnMeta = new ColumnMeta();
             columnMeta.setName(q4.get(0));
             columnMeta.setType(q4.get(1));
             columns.add(columnMeta);
-            tableMeta.setColumns(columns);
         }
+        tableMeta.setColumns(columns);
 
         System.out.println("Table Created Successfully");
         MetaCacheService.createTable(tableMeta);
