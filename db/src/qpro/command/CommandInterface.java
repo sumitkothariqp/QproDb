@@ -1,7 +1,7 @@
-package com.qpro.command;
+package qpro.command;
 
-import com.qpro.pojo.QueryStats;
-import com.qpro.pojo.QueryStatus;
+import qpro.pojo.QueryStats;
+import qpro.pojo.QueryStatus;
 
 public interface CommandInterface {
     public boolean isValidate(String query);

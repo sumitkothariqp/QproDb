@@ -1,7 +1,7 @@
-package com.qpro.command;
+package qpro.command;
 
-public class SelectCommand implements CommandInterface {
-    SelectCommand(String query) {
+public class DropCommand implements CommandInterface {
+    DropCommand(String query) {
         isValidate(query);
     }
 

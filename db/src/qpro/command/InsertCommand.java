@@ -1,7 +1,7 @@
-package com.qpro.command;
+package qpro.command;
 
-public class DeleteCommand implements CommandInterface {
-    DeleteCommand(String query) {
+public class InsertCommand implements CommandInterface {
+    InsertCommand(String query) {
         isValidate(query);
     }
 

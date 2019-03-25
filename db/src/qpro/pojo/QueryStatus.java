@@ -1,4 +1,4 @@
-package com.qpro.pojo;
+package qpro.pojo;
 
 import java.util.Arrays;
 

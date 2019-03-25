@@ -1,6 +1,6 @@
-package com.qpro.meta;
+package qpro.meta;
 
-import com.qpro.util.StringUtil;
+import qpro.util.StringUtil;
 
 import java.util.Arrays;
 

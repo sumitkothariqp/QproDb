@@ -1,4 +1,4 @@
-package com.qpro.command;
+package qpro.command;
 
 public class CommandFactory {
     public static final String CREATE_COMMAND = "create table";

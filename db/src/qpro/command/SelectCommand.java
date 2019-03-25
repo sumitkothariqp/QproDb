@@ -1,7 +1,7 @@
-package com.qpro.command;
+package qpro.command;
 
-public class InsertCommand implements CommandInterface {
-    InsertCommand(String query) {
+public class SelectCommand implements CommandInterface {
+    SelectCommand(String query) {
         isValidate(query);
     }
 

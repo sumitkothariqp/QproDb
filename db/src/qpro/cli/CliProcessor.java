@@ -1,8 +1,8 @@
-package com.qpro.cli;
+package qpro.cli;
 
-import com.qpro.command.CommandFactory;
-import com.qpro.command.CommandInterface;
-import com.qpro.pojo.QueryStats;
+import qpro.command.CommandFactory;
+import qpro.command.CommandInterface;
+import qpro.pojo.QueryStats;
 
 public class CliProcessor {
 

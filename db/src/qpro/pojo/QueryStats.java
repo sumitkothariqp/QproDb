@@ -1,4 +1,4 @@
-package com.qpro.pojo;
+package qpro.pojo;
 
 public class QueryStats {
 

@@ -1,6 +1,6 @@
-package com.qpro.command;
+package qpro.command;
 
-import com.qpro.util.StringUtil;
+import qpro.util.StringUtil;
 
 import java.util.*;
 

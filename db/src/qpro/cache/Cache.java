@@ -1,4 +1,4 @@
-package com.qpro.cache;
+package qpro.cache;
 
 import java.util.HashMap;
 import java.util.List;

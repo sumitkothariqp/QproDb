@@ -1,4 +1,4 @@
-package com.qpro.meta;
+package qpro.meta;
 
 import java.io.Serializable;
 import java.util.ArrayList;

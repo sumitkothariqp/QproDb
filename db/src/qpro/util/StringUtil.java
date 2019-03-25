@@ -1,4 +1,4 @@
-package com.qpro.util;
+package qpro.util;
 
 
 import java.util.Arrays;
