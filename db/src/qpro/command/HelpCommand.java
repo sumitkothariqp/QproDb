@@ -1,4 +1,4 @@
-package com.qpro.command;
+package qpro.command;
 
 public class HelpCommand implements CommandInterface {
 
@@ -14,7 +14,7 @@ public class HelpCommand implements CommandInterface {
     }
 
     @Override
-    public void process (String query) {
+    public Object process (String query) {
 
         if(query.contains("help")){
             System.out.println("Commands: \n\t\t create;\n\t\t select;");
@@ -25,7 +25,7 @@ public class HelpCommand implements CommandInterface {
         else if(query.contains("help select")){
             System.out.println("select command: select <*/column_name> from tablename ");
         }
-
+return null;
 
     }
 }
