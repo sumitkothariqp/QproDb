@@ -15,6 +15,7 @@ public class InsertCommand implements CommandInterface {
             List<String> q2=StringUtil.splitString(query,"\\ ");
 
 
+
         }
         return false;
     }
