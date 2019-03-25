@@ -7,7 +7,7 @@ import java.util.List;
 public class TableMeta implements Serializable {
 
     private String name;
-    private List<ColumnDataType> columnDataTypes = new ArrayList<>();
+    private List<ColumnMeta> columns = new ArrayList<>();
 
     public String getName() {
         return name;
@@ -17,11 +17,11 @@ public class TableMeta implements Serializable {
         this.name = name;
     }
 
-    public List<ColumnDataType> getColumnDataTypes() {
-        return columnDataTypes;
+    public List<ColumnMeta> getColumns() {
+        return columns;
     }
 
-    public void setColumnDataTypes(List<ColumnDataType> columnDataTypes) {
-        this.columnDataTypes = columnDataTypes;
+    public void setColumns(List<ColumnMeta> columns) {
+        this.columns = columns;
     }
 }

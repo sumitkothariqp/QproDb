@@ -18,7 +18,5 @@ public class CliProcessor {
         QueryStats stats = commandInterface.executeQuery(query);
 
 
-
-
     }
 }
