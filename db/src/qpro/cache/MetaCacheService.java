@@ -2,6 +2,7 @@ package qpro.cache;
 
 import qpro.meta.TableMeta;
 
+import java.util.List;
 import java.util.Map;
 
 public class MetaCacheService {
@@ -18,5 +19,9 @@ public class MetaCacheService {
 
     public void createTable(TableMeta tableMeta) {
         metaCache.put(tableMeta.getName(), tableMeta);
+    }
+
+    public void initializeCache(List<TableMeta> tableMetaList) {
+        tableMetaList.stream().forEach(tableMeta -> metaCache.put(tableMeta.getName(), tableMeta));
     }
 }
