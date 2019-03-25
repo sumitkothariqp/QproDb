@@ -1,5 +1,6 @@
 package qpro.cache;
 
+import file.util.FileObjectReader;
 import qpro.meta.TableMeta;
 
 import java.util.Collection;
@@ -33,7 +34,10 @@ public class MetaCacheService {
     public static void dropTable(String name){metaCache.remove(name);
     }
 
-    public static void initializeCache(List<TableMeta> tableMetaList) {
+    public static void initializeCache() {
+        FileObjectReader fileObjectReader = new FileObjectReader();
+        List<Object> fileObject = fileObjectReader.readObjectsFromFile("metadata.dat");
+        List<TableMeta> tableMetaList = (List<TableMeta>) fileObject.get(0);
         tableMetaList.stream().forEach(tableMeta -> metaCache.put(tableMeta.getName(), tableMeta));
     }
 }
