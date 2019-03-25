@@ -7,6 +7,7 @@ public class CommandFactory {
     public static final String INSERT_COMMAND = "insert into";
     public static final String DELETE_COMMAND = "delete from";
     public static final String SHOW_TABLES = "show tables";
+    public static final String HELP_TABLES = "help";
 
     public static CommandInterface getCommand(String query) {
         if (query.contains(CREATE_COMMAND))
@@ -21,8 +22,9 @@ public class CommandFactory {
             return new DeleteCommand();
         else if (query.contains(SHOW_TABLES))
             return new ShowTablesCommand();
-        else
-            return null;
+        else if (query.contains(HELP_TABLES))
+            return new HelpCommand();
+        return null;
 
     }
 }

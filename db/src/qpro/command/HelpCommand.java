@@ -4,7 +4,7 @@ public class HelpCommand implements CommandInterface {
 
 
     @Override
-    public boolean isValidate(String query) {
+    public boolean validate(String query) {
         if (query.contains("help")) {
             return true;
         }

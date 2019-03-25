@@ -19,6 +19,7 @@ public class CliProcessor {
         CommandInterface commandInterface = CommandFactory.getCommand(query);
         if (commandInterface == null) {
             System.out.println("invalid query");
+            return;
         }
         QueryStats stats = commandInterface.executeQuery(query);
         if (QueryStatus.VALIDATION_FAIL.equals(stats.getQueryStatus())) {
