@@ -15,11 +15,16 @@ public class CliEditor {
             String command = scanner.nextLine();
             // System.out.println(command);
 
-            if (command.equals("exit")) {
+            if (command!= null && command.equals("exit")) {
                 System.exit(0);
             }
-            CliProcessor processor = CliProcessor.getINSTANCE();
-            processor.process(command);
+            if (command != null) {
+                CliProcessor processor = CliProcessor.getINSTANCE();
+                processor.process(command);
+                System.out.println();
+            }
+
+            System.out.print("qprodb>");
 
         } while (true);
     }
