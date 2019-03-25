@@ -21,6 +21,15 @@ public class Main {
         System.out.println("hello");
     }
 
+    private static void initialization() {
+        System.out.println("Initializing database...");
+
+        //Build cache
+
+        System.out.println("Initialization done..");
+
+    }
+
 
 
 }

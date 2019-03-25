@@ -26,7 +26,8 @@ public class CreateCommand implements CommandInterface {
         return true;
     }
 
-    public void process(String query) {
+    public Object process(String query) {
 
+        return null;
     }
 }

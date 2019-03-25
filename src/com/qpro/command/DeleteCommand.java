@@ -13,7 +13,8 @@ public class DeleteCommand implements CommandInterface {
         return false;
     }
 
-    public void process(String query) {
+    public Object process(String query) {
 
+        return null;
     }
 }

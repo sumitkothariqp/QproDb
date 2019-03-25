@@ -11,18 +11,15 @@ public class CommandFactory {
         if (query.contains(CREATE_COMMAND))
             return new CreateCommand(query);
         else if (query.contains(DROP_COMMAND))
-
             return new DropCommand(query);
         else if (query.contains(SELECT_COMMAND))
-
             return new SelectCommand(query);
         else if (query.contains(INSERT_COMMAND))
-
             return new InsertCommand(query);
         else if (query.contains(DELETE_COMMAND))
-
             return new DeleteCommand(query);
-
+        else
+            return null;
 
     }
 }
