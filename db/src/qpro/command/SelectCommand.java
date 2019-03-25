@@ -44,12 +44,10 @@ public class SelectCommand implements CommandInterface {
 
         if (columns.equals("*")) {
             listofColumns.stream().forEach(column -> System.out.print(column.getName() + "    "));
-            for (ColumnMeta columnMeta : listofColumns) {
-                List<Map<String, Object>> listOfData = DataCacheService.getAllRows(tableName);
-                listOfData.forEach(item ->
-                        item.forEach((k, v) -> System.out.print((String) v + "  ")
-                        ));
-            }
+            System.out.println();
+            List<Map<String, Object>> listOfData = DataCacheService.getAllRows(tableName);
+            printRow(listofColumns, listOfData);
+
         } else {
             List<String> columnList = StringUtil.splitString(columns, ",");
             columnList.stream().forEach(column -> System.out.print(column + "    "));
@@ -63,5 +61,17 @@ public class SelectCommand implements CommandInterface {
             });
         }
         return null;
+    }
+
+    private void printRow(List<ColumnMeta> listofColumns, List<Map<String, Object>> listOfData) {
+        if (listOfData != null) {
+            listOfData.forEach(item -> {
+                        for (ColumnMeta columnMeta : listofColumns) {
+                            System.out.print(item.get(columnMeta.getName()) + "    ");
+                        }
+                        System.out.println();
+                    }
+            );
+        }
     }
 }

@@ -12,13 +12,13 @@ import java.util.Map;
 
 public class InsertCommand implements CommandInterface {
     public boolean validate(String query) {
-        if (query.contains("(") && query.contains(")")) {
+        if (!query.contains("(") || !query.contains(")")) {
             return false;
         }
         List<String> q1 = StringUtil.splitString(query, "\\(");
-        List<String> q2 = StringUtil.splitString(q1.get(0), "// ");
+        List<String> q2 = StringUtil.splitString(q1.get(0), " ");
         String tableName = q2.get(2);
-        if (StringUtil.isEmpty(tableName) || !MetaCacheService.isTableExits(tableName)) {
+        if (StringUtil.isEmpty(tableName) || !MetaCacheService.isTableExist(tableName)) {
             return false;
         }
         String syntax = q2.get(3);
@@ -26,14 +26,14 @@ public class InsertCommand implements CommandInterface {
             return false;
         }
 
-        List<String> q3 = StringUtil.splitString(q1.get(1), ",");
+        List<String> q3 = StringUtil.splitString(q1.get(1).replace(")", ""), ",");
         if (!(q3.size() == MetaCacheService.getTableMeta(tableName).getColumns().size())) {
             return false;
         }
         List<ColumnMeta> columnsList = MetaCacheService.getTableMeta(tableName).getColumns();
         int i = 0;
         for (ColumnMeta columnMeta : columnsList) {
-            if (ColumnDataType.getByType(q3.get(i)).equals(columnsList.get(i).getType())) {
+            if (!ColumnDataType.getByType(columnMeta.getType()).validateData(q3.get(i))) {
                 return false;
             }
             i++;
@@ -44,8 +44,8 @@ public class InsertCommand implements CommandInterface {
 
     public Object process(String query) {
         List<String> q1 = StringUtil.splitString(query, "\\(");
-        List<String> q2 = StringUtil.splitString(q1.get(0), "// ");
-        List<String> q3 = StringUtil.splitString(q1.get(1), ",");
+        List<String> q2 = StringUtil.splitString(q1.get(0), " ");
+        List<String> q3 = StringUtil.splitString(q1.get(1).replace(")",""), ",");
         String tableName = q2.get(2);
         Map<String, Object> map = new HashMap<String, Object>();
         List<ColumnMeta> columnsList = MetaCacheService.getTableMeta(tableName).getColumns();

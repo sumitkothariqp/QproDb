@@ -30,6 +30,6 @@ public enum ColumnDataType {
         return Arrays.stream(ColumnDataType.values()).filter(e -> e.type.equals(type)).findFirst().orElse(null);
     }
 
-    abstract boolean validateData(String data);
+    public abstract boolean validateData(String data);
 
 }

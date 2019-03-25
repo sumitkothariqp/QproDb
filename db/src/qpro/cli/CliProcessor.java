@@ -21,8 +21,12 @@ public class CliProcessor {
             System.out.println("invalid query");
             return;
         }
-        QueryStats stats = commandInterface.executeQuery(query);
-        if (QueryStatus.VALIDATION_FAIL.equals(stats.getQueryStatus())) {
+        try {
+            QueryStats stats = commandInterface.executeQuery(query);
+            if (QueryStatus.VALIDATION_FAIL.equals(stats.getQueryStatus())) {
+                System.out.println("invalid query");
+            }
+        } catch (Exception e) {
             System.out.println("invalid query");
         }
 

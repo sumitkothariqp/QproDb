@@ -2,6 +2,7 @@ package qpro.cache;
 
 import file.util.FileObjectReader;
 import file.util.FileObjectWriter;
+import qpro.meta.ColumnMeta;
 import qpro.meta.TableMeta;
 
 import java.util.ArrayList;
@@ -74,7 +75,11 @@ public class DataCacheService {
                 tableCache.put(tableName, new ArrayList<>());
             }
             List<Map<String, Object>> table = tableCache.get(tableName);
-            tableCache.put(tableName, table.stream().filter(row -> !row.get("id").equals(id)).collect(Collectors.toList()));
+            TableMeta tableMeta = MetaCacheService.getTableMeta(tableName);
+            ColumnMeta columnMeta = tableMeta.getColumns().get(0);
+            List<Map<String, Object>> filteredList = table.stream().filter(row -> !(String.valueOf(id).equals( row.get(columnMeta.getName())))
+            ).collect(Collectors.toList());
+            tableCache.put(tableName, filteredList);
         }
     }
 
