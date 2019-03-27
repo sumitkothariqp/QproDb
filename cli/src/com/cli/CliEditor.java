@@ -25,7 +25,6 @@ public class CliEditor {
                 CliProcessor processor = CliProcessor.getINSTANCE();
                 processor.process(command);
                 System.out.println();
-                System.out.println("*********************");
             }
 
             System.out.print("qprodb>");
